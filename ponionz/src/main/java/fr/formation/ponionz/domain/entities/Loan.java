@@ -18,22 +18,22 @@ public class Loan {
     private Long id;
 
     @Column(name = "amount")
-    private int amount;
+    private Integer amount;
 
     @Column(name = "contribution")
-    private float contribution;
+    private Float contribution;
 
     @Column(name = "term")
     private int term;
 
     @Column(name = "benefit_rate")
-    private float benefitRate;
+    private Double benefitRate;
 
     @Column(name = "insurance_rate")
-    private float insuranceRate;
+    private Double insuranceRate;
 
     @Column(name = "job_loss_coverage")
-    private int jobLossCoverage;
+    private Integer jobLossCoverage;
 
     @Column(name = "creation_date")
     private LocalDateTime creationDate;
@@ -46,19 +46,19 @@ public class Loan {
 	this.id = id;
     }
 
-    public int getAmount() {
+    public Integer getAmount() {
 	return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(Integer amount) {
 	this.amount = amount;
     }
 
-    public float getContribution() {
+    public Float getContribution() {
 	return contribution;
     }
 
-    public void setContribution(float contribution) {
+    public void setContribution(Float contribution) {
 	this.contribution = contribution;
     }
 
@@ -70,27 +70,27 @@ public class Loan {
 	this.term = term;
     }
 
-    public float getBenefitRate() {
+    public Double getBenefitRate() {
 	return benefitRate;
     }
 
-    public void setBenefitRate(float benefitRate) {
+    public void setBenefitRate(Double benefitRate) {
 	this.benefitRate = benefitRate;
     }
 
-    public float getInsuranceRate() {
+    public Double getInsuranceRate() {
 	return insuranceRate;
     }
 
-    public void setInsuranceRate(float insuranceRate) {
+    public void setInsuranceRate(Double insuranceRate) {
 	this.insuranceRate = insuranceRate;
     }
 
-    public int getJobLossCoverage() {
+    public Integer getJobLossCoverage() {
 	return jobLossCoverage;
     }
 
-    public void setJobLossCoverage(int jobLossCoverage) {
+    public void setJobLossCoverage(Integer jobLossCoverage) {
 	this.jobLossCoverage = jobLossCoverage;
     }
 

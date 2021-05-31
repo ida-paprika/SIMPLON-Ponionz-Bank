@@ -2,10 +2,11 @@ package fr.formation.ponionz.services;
 
 import java.time.LocalDateTime;
 
+import org.apache.commons.math3.util.Precision;
 import org.springframework.stereotype.Service;
 
 import fr.formation.ponionz.domain.dtos.LoanCreate;
-import fr.formation.ponionz.domain.dtos.LoanView;
+import fr.formation.ponionz.domain.entities.Loan;
 import fr.formation.ponionz.repositories.LoanRepository;
 
 @Service
@@ -19,16 +20,15 @@ public class LoanServiceImpl implements LoanService {
 
     @Override
     public void create(LoanCreate dto) {
-	LoanView loan = new LoanView();
-	loan.setAmount(dto.getAmount());
-	loan.setContribution(dto.getContribution());
-	loan.setTerm(dto.getTerm());
-	loan.setBenefitRate(dto.getBenefitRate());
-	loan.setInsuranceRate(dto.getInsuranceRate());
-	loan.setJobLossInsurance(dto.isJobLossInsurance());
-	loan.setJobLossCoverage(dto.getJobLossCoverage());
-	loan.setCreationDate(LocalDateTime.now());
-	System.out.println(loan.toString());
+	Loan entity = new Loan();
+	entity.setAmount(dto.getAmount());
+	entity.setContribution(dto.getContribution());
+	entity.setTerm(dto.getTerm());
+	entity.setBenefitRate(Precision.round(dto.getBenefitRate(), 2));
+	entity.setInsuranceRate(Precision.round(dto.getInsuranceRate(), 2));
+	entity.setJobLossCoverage(dto.getJobLossCoverage());
+	entity.setCreationDate(LocalDateTime.now());
+	repo.save(entity);
     }
 
 }

@@ -12,7 +12,7 @@ public class MaximumContributionValidator
     public boolean isValid(LoanCreate value,
 	    ConstraintValidatorContext context) {
 
-	if (value == null) {
+	if (value.getContribution() == null) {
 	    return true;
 	}
 

@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -32,12 +31,12 @@ public class LoanCreate {
     @NotNull
     private int term;
 
-    @DecimalMin(value = "0.1")
+    @Positive
     @NotNull
-    private Float benefitRate;
+    private Double benefitRate;
 
-    @DecimalMin(value = "0.1")
-    private Float insuranceRate;
+    @Positive
+    private Double insuranceRate;
 
     private boolean jobLossInsurance;
 
@@ -48,14 +47,11 @@ public class LoanCreate {
     private LocalDateTime creationDate;
 
     public LoanCreate() {
-    }
-
-    public void setCoverageOptions(Set<Integer> coverageOptions) {
-	coverageOptions.add(30);
-	coverageOptions.add(40);
-	coverageOptions.add(50);
-	coverageOptions.add(60);
-	coverageOptions.add(70);
+	this.coverageOptions.add(30);
+	this.coverageOptions.add(40);
+	this.coverageOptions.add(50);
+	this.coverageOptions.add(60);
+	this.coverageOptions.add(70);
     }
 
     public int getAmount() {
@@ -74,11 +70,11 @@ public class LoanCreate {
 	this.contribution = contribution;
     }
 
-    public Float getBenefitRate() {
+    public Double getBenefitRate() {
 	return benefitRate;
     }
 
-    public void setBenefitRate(Float benefitRate) {
+    public void setBenefitRate(Double benefitRate) {
 	this.benefitRate = benefitRate;
     }
 
@@ -90,11 +86,11 @@ public class LoanCreate {
 	this.term = term;
     }
 
-    public Float getInsuranceRate() {
+    public Double getInsuranceRate() {
 	return insuranceRate;
     }
 
-    public void setInsuranceRate(Float insuranceRate) {
+    public void setInsuranceRate(Double insuranceRate) {
 	this.insuranceRate = insuranceRate;
     }
 
